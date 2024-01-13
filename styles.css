@@ -1,0 +1,15 @@
+.centered {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#header {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+#body {
+    font-size: 1em;
+}
