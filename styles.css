@@ -13,3 +13,16 @@
 #body {
     font-size: 1.25em;
 }
+
+.link {
+    text-decoration: underline;
+    /* text-decoration-style: dashed; */
+    color: black;
+}
+
+.link:hover {
+    /* background-color: red; */
+    opacity: 60;
+    cursor: pointer;
+    color: blue;
+}
