@@ -58,6 +58,7 @@ body.toggled > #tiles > .tile:hover {
 
 #header-title, #paragraph-content, .link { /*make text unhighlightable*/
     -webkit-user-select: none;
+    -moz-user-select: none;
     user-select: none;
 }
 
