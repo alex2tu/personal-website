@@ -1,0 +1,205 @@
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Tu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body oncontextmenu="return false">
+
+    <div id="tiles"></div>
+
+    <div class = "centered" id="text-content">
+        <div id="header-title" class = "text">
+            Hi, I'm Alex Tu
+        </div>
+        <div id ="paragraph-content" class = "text">
+            Hi, I'm Alex, a student studying computer science at Purdue University! Feel free to reach me at 
+            <a class="link" href="mailto:tu96@purdue.edu">tu96@purdue.edu</a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</body>
+</html>
+
+CSS
+:root {
+    --g1: black;
+}
+  
+body {
+    background: linear-gradient(
+      to right,
+      var(--g1)
+    );
+    background-size: 200%;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0px;
+}
+
+body.toggled {
+    animation: none;
+}
+
+body.toggled > #header-title {
+    opacity: 0;
+}
+
+body.toggled > #paragraph-content {
+    opacity: 1;
+}
+
+body.toggled > #tiles > .tile:hover {
+    opacity: 0.1 !important;
+}
+
+#tiles {
+    height: calc(100vh);
+    width: calc(100vw);
+    position: relative;
+    z-index: 2;
+    
+    display: grid;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    grid-template-rows: repeat(var(--rows), 1fr);
+}
+
+.tile {
+    cursor: pointer;
+    position: relative;
+}
+  
+.tile:hover:before {
+    background-color: rgb(30, 30, 30);
+}
+  
+.tile:before {
+    background-color: rgb(0, 0, 0);
+    content: "";
+    inset: 0px;
+    position: absolute;
+}
+
+#header-title, #paragraph-content, .link { /*make text unhighlightable*/
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.centered {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4; /* Figure out how to make the text specifically have higher z-index and not centered as a class */
+}
+
+#header-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 2.5em;
+    padding-bottom: 1.5vh;
+    color:white;
+    z-index: 5 !important;
+}
+
+#paragraph-content {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.25em;
+    color: black;
+    z-index: 5 !important;
+}
+
+.link {
+    text-decoration: underline;
+    /* text-decoration-style: dashed; */
+    color: black;
+}
+
+.link:hover {
+    /* background-color: red; */
+    opacity: 60;
+    cursor: pointer;
+    color: blue;
+    z-index: 3;
+}
+
+JAVASCRIPT
+const wrapper = document.getElementById("tiles");
+
+let columns = 0, rows = 0, toggled = false; notToggled = true;
+
+const toggle = () => {
+    toggled = !toggled;
+    // notToggled = !notToggled;
+    
+    document.body.classList.toggle("toggled");
+}
+
+function getNextColor() {
+  return toggled ? "rgb(255, 255, 255)" : "rgb(0, 0, 0)";
+}
+
+const handleOnClick = index => {
+    toggle();
+    
+    anime({
+      targets: ".tile",
+      // backgroundColor: getNextColor(),
+      opacity: toggled ? 0 : 1,
+      
+      delay: anime.stagger(50, {
+        grid: [columns, rows],
+        from: index
+      })
+    });
+}
+  
+const createTile = index => {
+    const tile = document.createElement("div");
+    
+    tile.classList.add("tile");
+    
+    tile.style.opacity = toggled ? 0 : 1;
+    
+    tile.onclick = e => handleOnClick(index);
+    
+    return tile;
+}
+  
+const createTiles = quantity => {
+    Array.from(Array(quantity)).map((tile, index) => {
+      wrapper.appendChild(createTile(index));
+    });
+}
+  
+const createGrid = () => {
+    wrapper.innerHTML = "";
+    
+    const size = document.body.clientWidth > 800 ? 100 : 50;
+    
+    columns = Math.floor(document.body.clientWidth / size);
+    rows = Math.floor(document.body.clientHeight / size);
+    
+    wrapper.style.setProperty("--columns", columns);
+    wrapper.style.setProperty("--rows", rows);
+    
+    createTiles(columns * rows);
+}
+  
+createGrid();
+  
+window.onresize = () => createGrid();
+
+// Disable 'c' key:
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'c') {
+    event.preventDefault();
+    console.log('The "c" key is disabled.');
+  } 
+});
