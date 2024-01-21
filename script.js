@@ -13,11 +13,13 @@ const colors = [
 
 let count = 0;
 let toggled = false;
+let currTileColor = "rgb(0, 0, 0)";
 
 const toggle = () => {
-  toggled = !toggled;
+  toggled = !toggled; //update toggled var
+  currTileColor = getNextColor(); //update color
   
-  document.body.classList.toggle("toggled");
+  document.body.classList.toggle("toggled"); //update toggled in css
 }
 
 function getNextColor() {
@@ -26,13 +28,13 @@ function getNextColor() {
 }
 
 const handleOnClick = index => {
-    count = count + 1;
     toggle();
+    // count = count + 1;
     //backgroundColor: colors[count % (colors.length-1)],
 
     anime({
       targets: ".tile",
-      backgroundColor: getNextColor(),
+      backgroundColor: currTileColor,
       delay: anime.stagger(50, {
         grid: [columns, rows],
         from: index

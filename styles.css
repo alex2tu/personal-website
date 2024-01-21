@@ -20,7 +20,11 @@ body {
 }
 
 .tile:hover {
-    /* background-color: rgb(30, 30, 30); */
+    background-color: rgb(30, 30, 30) !important;
+}
+
+body.toggled > #tiles > .tile:hover {
+    background-color: rgb(200, 200, 200) !important;
 }
 
 #header-title, #paragraph-content, .link { /*make text unhighlightable*/
