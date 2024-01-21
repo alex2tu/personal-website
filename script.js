@@ -22,6 +22,13 @@ const toggle = () => {
   document.body.classList.toggle("toggled"); //update toggled in css
 }
 
+// const postAnimationToggle = () => {
+//   //updateTileHoverColor
+//   let tileHoverColor = toggled ? "rgb(210, 210, 210)" : "rgb(30, 30, 30)";
+//   console.log(tileHoverColor)
+//   wrapper.style.setProperty("--tileHoverColor", tileHoverColor)
+// }
+
 function getNextColor() {
     return toggled ? "rgb(255, 255, 255)" : "rgb(0, 0, 0)";
     //black if toggled is false, white when toggled is true
@@ -40,6 +47,8 @@ const handleOnClick = index => {
         from: index
       })
     });
+
+    // postAnimationToggle();
 }
   
 const createTile = index => {

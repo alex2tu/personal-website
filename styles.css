@@ -19,13 +19,13 @@ body {
     position: relative;
 }
 
-.tile:hover {
-    background-color: rgb(30, 30, 30) !important;
+/* .tile:hover {
+    background-color: var(--tileHoverColor) !important;
 }
 
 body.toggled > #tiles > .tile:hover {
-    background-color: rgb(200, 200, 200) !important;
-}
+    background-color: rgb(210, 210, 210) !important;
+} */
 
 #header-title, #paragraph-content, .link { /*make text unhighlightable*/
     -webkit-user-select: none;
@@ -59,6 +59,11 @@ body.toggled > #tiles > .tile:hover {
     text-decoration: underline;
     /* text-decoration-style: dashed; */
     color: black;
+    pointer-events: none;
+}
+
+body.toggled .link {
+    pointer-events: auto;
 }
 
 body.toggled .link:hover {
