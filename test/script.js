@@ -36,19 +36,18 @@ function getNextColor() {
 
 const handleOnClick = index => {
     toggle();
-    // count = count + 1;
-    //backgroundColor: colors[count % (colors.length-1)],
+    count = count + 1;
+    // backgroundColor: colors[count % (colors.length-1)],
 
     anime({
       targets: ".tile",
-      backgroundColor: currTileColor,
+      backgroundColor: colors[count % (colors.length-1)],
       delay: anime.stagger(50, {
         grid: [columns, rows],
         from: index
       })
     });
 
-    // console.log("clicked")
     // postAnimationToggle();
 }
   
