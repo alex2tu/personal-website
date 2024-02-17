@@ -32,6 +32,9 @@ const toggle = () => {
 function getNextColor() {
     return toggled ? "rgb(255, 255, 255)" : "rgb(0, 0, 0)";
     //black if toggled is false, white when toggled is true
+
+    // debugging line
+    // return toggled ? "rgb(229, 57, 53)" : "rgb(253, 216, 53)";
 }
 
 const handleOnClick = index => {

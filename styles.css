@@ -1,6 +1,7 @@
 body {
     /* height: 100vh; */
     margin: 0px;
+    overflow: hidden;
 }
 
 #tiles {
@@ -17,6 +18,14 @@ body {
 .tile {
     cursor: pointer;
     position: relative;
+}
+
+body.toggled #header-title {
+    opacity: 0;
+}
+
+body.toggled #paragraph-content {
+    opacity: 1;
 }
 
 /* .tile:hover {
@@ -47,12 +56,20 @@ body.toggled > #tiles > .tile:hover {
     font-size: 2.5em;
     padding-bottom: 1.5vh;
     color:white;
+    
+    pointer-events: none;
+    transition: opacity 800ms ease;
 }
 
 #paragraph-content {
     font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
     font-size: 1.25em;
     color: black;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 800ms ease;
 }
 
 .link {
