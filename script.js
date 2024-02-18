@@ -29,6 +29,9 @@ const toggle = () => {
 function toggleOnce() { //once toggled, no longer show click disclaimer
   toggledOnce = true;
   document.body.classList.toggle("toggledOnce");
+  setTimeout(() => {
+    document.getElementById("header-title").innerHTML = "Alex Tu";
+  }, 300); //wait for first element to fade out
 }
 
 // const postAnimationToggle = () => {
