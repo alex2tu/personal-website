@@ -14,12 +14,21 @@ const colors = [
 let count = 0;
 let toggled = false;
 let currTileColor = "rgb(0, 0, 0)";
+let toggledOnce = false;
 
 const toggle = () => {
   toggled = !toggled; //update toggled var
   currTileColor = getNextColor(); //update color
+  if (!toggledOnce) {
+    toggleOnce()
+  }
   
   document.body.classList.toggle("toggled"); //update toggled in css
+}
+
+function toggleOnce() { //once toggled, no longer show click disclaimer
+  toggledOnce = true;
+  document.body.classList.toggle("toggledOnce");
 }
 
 // const postAnimationToggle = () => {

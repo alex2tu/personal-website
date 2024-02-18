@@ -20,13 +20,17 @@ body {
     position: relative;
 }
 
-body.toggled #header-title {
+body.toggled > #header-title {
     opacity: 0;
 }
 
-body.toggled #paragraph-content {
+body.toggled > #paragraph-content {
     opacity: 1;
 }
+
+body.toggledOnce #click-disclaimer {
+    opacity: 0;
+} /* stop showing after already clicked once */
 
 /* .tile:hover {
     background-color: var(--tileHoverColor) !important;
@@ -56,9 +60,9 @@ body.toggled > #tiles > .tile:hover {
     font-size: 2.5em;
     padding-bottom: 1.5vh;
     color:white;
-    
+
     pointer-events: none;
-    transition: opacity 800ms ease;
+    transition: opacity 300ms ease;
 }
 
 #paragraph-content {
@@ -69,7 +73,13 @@ body.toggled > #tiles > .tile:hover {
 
     opacity: 0;
     pointer-events: none;
-    transition: opacity 800ms ease;
+    transition: opacity 600ms ease;
+}
+
+#click-disclaimer {
+    color: gray;
+    font-weight: lighter;
+    font-size: 0.5em;
 }
 
 .link {
@@ -88,5 +98,5 @@ body.toggled .link:hover {
     opacity: 60;
     cursor: pointer;
     color: blue;
-    z-index: 3;
+    /* z-index: 3; */
 }
