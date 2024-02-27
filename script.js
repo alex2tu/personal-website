@@ -15,6 +15,7 @@ let count = 0;
 let toggled = false;
 let currTileColor = "rgb(0, 0, 0)";
 let toggledOnce = false;
+let animationRunning = false;
 
 const toggle = () => {
   toggled = !toggled; //update toggled var
@@ -50,9 +51,14 @@ function getNextColor() {
 }
 
 const handleOnClick = index => {
-    toggle();
     // count = count + 1;
     //backgroundColor: colors[count % (colors.length-1)],
+    if (animationRunning) {
+      return;
+    }
+
+    if (!toggledOnce) { animationRunning = true }
+    toggle();
 
     anime({
       targets: ".tile",
@@ -60,7 +66,11 @@ const handleOnClick = index => {
       delay: anime.stagger(50, {
         grid: [columns, rows],
         from: index
-      })
+      }), 
+      complete: function() {
+        console.log("Animation completed!");
+        animationRunning = false; // Animation is completed, set flag to false
+      }
     });
 
     // console.log("clicked")
