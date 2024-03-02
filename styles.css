@@ -28,17 +28,9 @@ body.toggled > #paragraph-content {
     opacity: 1;
 }
 
-body.toggledOnce #click-disclaimer {
+/* body.toggledOnce #click-disclaimer {
     opacity: 0;
-} /* stop showing after already clicked once */
-
-/* .tile:hover {
-    background-color: var(--tileHoverColor) !important;
-}
-
-body.toggled > #tiles > .tile:hover {
-    background-color: rgb(210, 210, 210) !important;
-} */
+} stop showing after already clicked once */
 
 #header-title, #paragraph-content, .link { /*make text unhighlightable*/
     -webkit-user-select: none;
@@ -76,11 +68,11 @@ body.toggled > #tiles > .tile:hover {
     transition: opacity 600ms ease;
 }
 
-#click-disclaimer {
+/* #click-disclaimer {
     color: gray;
     font-weight: lighter;
     font-size: 0.5em;
-}
+} */
 
 .link {
     text-decoration: underline;

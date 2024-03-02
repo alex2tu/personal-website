@@ -15,7 +15,7 @@ let count = 0;
 let toggled = false;
 let currTileColor = "rgb(0, 0, 0)";
 let toggledOnce = false;
-let animationRunning = false;
+let animationRunning = true;
 
 const toggle = () => {
   toggled = !toggled; //update toggled var
@@ -27,37 +27,23 @@ const toggle = () => {
   document.body.classList.toggle("toggled"); //update toggled in css
 }
 
-function toggleOnce() { //once toggled, no longer show click disclaimer
+function toggleOnce() { //after toggled once
   toggledOnce = true;
-  document.body.classList.toggle("toggledOnce");
   setTimeout(() => {
     document.getElementById("header-title").innerHTML = "Alex Tu";
   }, 300); //wait for first element to fade out
 }
 
-// const postAnimationToggle = () => {
-//   //updateTileHoverColor
-//   let tileHoverColor = toggled ? "rgb(210, 210, 210)" : "rgb(30, 30, 30)";
-//   console.log(tileHoverColor)
-//   wrapper.style.setProperty("--tileHoverColor", tileHoverColor)
-// }
-
 function getNextColor() {
     return toggled ? "rgb(255, 255, 255)" : "rgb(0, 0, 0)";
     //black if toggled is false, white when toggled is true
-
-    // debugging line
-    // return toggled ? "rgb(229, 57, 53)" : "rgb(253, 216, 53)";
 }
 
 const handleOnClick = index => {
-    // count = count + 1;
-    //backgroundColor: colors[count % (colors.length-1)],
-    if (animationRunning) {
+    if (introRunning) { //disallow click when intro is running
       return;
     }
 
-    if (!toggledOnce) { animationRunning = true }
     toggle();
 
     anime({
@@ -69,12 +55,8 @@ const handleOnClick = index => {
       }), 
       complete: function() {
         console.log("Animation completed!");
-        animationRunning = false; // Animation is completed, set flag to false
       }
     });
-
-    // console.log("clicked")
-    // postAnimationToggle();
 }
   
 const createTile = index => {
@@ -110,11 +92,3 @@ const createGrid = () => {
 createGrid();
   
 window.onresize = () => createGrid();
-
-// Disable 'c' key:
-document.addEventListener('keydown', function(event) {
-  if (event.key === 'c') {
-    event.preventDefault();
-    console.log('The "c" key is disabled.');
-  } 
-});
