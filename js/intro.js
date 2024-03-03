@@ -22,12 +22,13 @@ let anim = [
     { word: "Hi, I'm Alex 2|", ms: 400 },
     { word: "Hi, I'm Alex 2", ms: 300 },
     { word: "Hi, I'm Alex 2|", ms: 400 },
+    { word: "Hi, I'm Alex 2", ms: 300 },
     { word: "Hi, I'm Alex |", ms: 200 },
     { word: "Hi, I'm Alex T|", ms: 200 },
     { word: "Hi, I'm Alex Tu|", ms: 400 },
     { word: "Hi, I'm Alex Tu", ms: 300 },
     { word: "Hi, I'm Alex Tu|", ms: 400 },
-    { word: "Hi, I'm Alex Tu", ms: 100 },
+    { word: "Hi, I'm Alex Tu", ms: 200 },
     { word: "Hi, I'm Alex Tu", ms: 200 }
 ];
 let i = 0;
