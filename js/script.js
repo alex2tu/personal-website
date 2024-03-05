@@ -15,7 +15,6 @@ let count = 0;
 let toggled = false;
 let currTileColor = "rgb(0, 0, 0)";
 let toggledOnce = false;
-let animationRunning = true;
 
 const toggle = () => {
   toggled = !toggled; //update toggled var
