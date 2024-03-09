@@ -86,7 +86,6 @@ body.toggled .link {
 }
 
 body.toggled .link:hover {
-    /* background-color: red; */
     opacity: 60;
     cursor: pointer;
     color: blue;

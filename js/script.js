@@ -11,23 +11,18 @@ const colors = [
     "rgb(156, 39, 176)",
 ];
 
-let count = 0;
 let toggled = false;
 let currTileColor = "rgb(0, 0, 0)";
-let toggledOnce = false;
 
 const toggle = () => {
   toggled = !toggled; //update toggled var
   currTileColor = getNextColor(); //update color
-  if (!toggledOnce) {
-    toggleOnce()
-  }
   
   document.body.classList.toggle("toggled"); //update toggled in css
 }
 
 function toggleOnce() { //after toggled once
-  toggledOnce = true;
+  toggle();
   setTimeout(() => {
     document.getElementById("header-title").innerHTML = "Alex Tu";
   }, 300); //wait for first element to fade out
