@@ -10,7 +10,7 @@ let anim = [
     { word: "Al|", ms: 100 },
     { word: "Ale|", ms: 100 },
     { word: "Alex|", ms: 100 },
-    { word: "Alex |", ms: 150 },
+    { word: "Alex |", ms: 100 },
     { word: "Placeholder", ms: 0 }, //index to skip
     { word: "Alex |", ms: 200 },
     { word: "Alex T|", ms: 200 },
@@ -23,8 +23,8 @@ let anim = [
 
 const names = [
   [
-    { word: "Alex T|", ms: 150 },
-    { word: "Alex To|", ms: 200 },
+    { word: "Alex T|", ms: 125 },
+    { word: "Alex To|", ms: 150 },
     { word: "Alex Too|", ms: 400 },
     { word: "Alex Too", ms: 300 },
     { word: "Alex Too|", ms: 400 },
@@ -34,7 +34,7 @@ const names = [
     { word: "Alex T|", ms: 200 }
   ],
   [
-    { word: "Alex T|", ms: 150 },
+    { word: "Alex T|", ms: 125 },
     { word: "Alex To|", ms: 400 },
     { word: "Alex To", ms: 300 },
     { word: "Alex To|", ms: 400 },
@@ -43,15 +43,16 @@ const names = [
     { word: "Alex T|", ms: 200 }
   ],
   [
-    { word: "Alex 2|", ms: 400 },
+    { word: "Alex 2|", ms: 150 },
+    { word: "Alex 2|", ms: 250 },
     { word: "Alex 2", ms: 300 },
     { word: "Alex 2|", ms: 400 },
     { word: "Alex 2", ms: 300 },
     { word: "Alex 2", ms: 300 }
   ],
   [
-    { word: "Alex T|", ms: 150 },
-    { word: "Alex Tw|", ms: 200 },
+    { word: "Alex T|", ms: 125 },
+    { word: "Alex Tw|", ms: 150 },
     { word: "Alex Two|", ms: 400 },
     { word: "Alex Two", ms: 300 },
     { word: "Alex Two|", ms: 400 },
@@ -61,11 +62,20 @@ const names = [
     { word: "Alex T|", ms: 200 }
   ],
   [
-    { word: "Alex 屠|", ms: 400 },
+    { word: "Alex 屠|", ms: 200 },
+    { word: "Alex 屠|", ms: 200 },
     { word: "Alex 屠", ms: 300 },
     { word: "Alex 屠|", ms: 400 },
     { word: "Alex 屠", ms: 300 },
     { word: "Alex 屠", ms: 300 }
+  ],
+  [
+    { word: "Alex ✌️|", ms: 200 },
+    { word: "Alex ✌️|", ms: 200 },
+    { word: "Alex ✌️", ms: 300 },
+    { word: "Alex ✌️|", ms: 400 },
+    { word: "Alex ✌️", ms: 300 },
+    { word: "Alex ✌️", ms: 300 }
   ]
 ];
 let i = 0;
@@ -100,9 +110,7 @@ let update = () => {
 };
 
 function choose_name() {
-  let index = Math.floor(Math.random() * 5);
-  console.log(index);
-  console.log(names[index]);
+  let index = Math.floor(Math.random() * 6);
   return names[index];
 }
 
