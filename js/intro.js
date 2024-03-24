@@ -85,7 +85,6 @@ let update = () => {
     i++;
 
     if (i == 9) {
-      console.log("1");
       setTimeout(update_last_names, 200);
     } else if (i < anim.length) {
         setTimeout(update, step.ms);
@@ -101,7 +100,7 @@ let update = () => {
                   from: 'last'
                 }), 
                 complete: function() {
-                  console.log("Animation completed!");
+                  console.log("anim complete");
                   introRunning = false; // Animation is completed, set flag to false
                 }
               });
