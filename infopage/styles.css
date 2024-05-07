@@ -1,0 +1,95 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.numbers {
+    display: grid;
+    grid-template-columns: repeat(10, 0fr);
+    text-align: center;
+    align-items: center;
+}
+
+.numbers span {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    margin: 5px;
+    font-weight: bold;
+    font-size: 27px;
+}
+
+/* #highlight {
+    width: 45px; 
+    height: 45px; 
+ 
+    border-radius: 50%;
+    border: 2px solid black;
+    margin-top: -2px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-2px);
+} */
+
+#title-name {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 23px;
+}
+
+#title-location {
+    margin-top: -15px;
+    text-align: center;
+    font-size: 18px;
+}
+
+a:visited {
+    color: inherit; /* Set the color to inherit from the parent element */
+}
+
+
+/* ICON STYLES */
+
+#personal-icon {
+    background-image: url('../img/favicons/favicon.ico');
+}
+
+#letterboxd-icon {
+    background-image: url('../img/icons/letterboxd.svg');
+    background-size: cover;
+    margin-bottom: -1px;
+}
+
+#leetcode-icon {
+    background-image: url('../img/icons/leetcode.png');
+    background-size: cover;
+    margin-bottom: -1px;
+}
+
+#mail-icon {
+    background-image: url('../img/icons/gmail-logo.webp');
+    background-size: cover;
+    margin-bottom: -1px;
+}
+
+#personal-icon {
+    background-size: cover;
+    width: 27px;
+    height: 27px;
+}
+
+#github-icon, #linkedin-icon, #letterboxd-icon, #leetcode-icon {
+    width: 30px;
+    height: 30px; 
+    font-size: 27px; 
+}
