@@ -2,28 +2,28 @@ let introRunning = true;
 
 let header = document.getElementById("header-title");
 let anim = [
-    { word: "|", ms: 400 },
-    { word: " ", ms: 300 },
-    { word: "|", ms: 400 },
-    { word: " ", ms: 300 },
-    { word: "A|", ms: 100 },
-    { word: "Al|", ms: 100 },
-    { word: "Ale|", ms: 100 },
-    { word: "Alex|", ms: 100 },
-    { word: "Alex |", ms: 100 },
+    { word: "|", ms: 350 },
+    { word: " ", ms: 250 },
+    { word: "|", ms: 350 },
+    { word: " ", ms: 250 },
+    { word: "A|", ms: 75 },
+    { word: "Al|", ms: 75 },
+    { word: "Ale|", ms: 75 },
+    { word: "Alex|", ms: 75 },
+    { word: "Alex |", ms: 75 },
     { word: "Placeholder", ms: 0 }, //index to skip
-    { word: "Alex |", ms: 200 },
-    { word: "Alex T|", ms: 200 },
+    { word: "Alex |", ms: 150 },
+    { word: "Alex T|", ms: 150 },
     { word: "Alex Tu|", ms: 400 },
     { word: "Alex Tu", ms: 300 },
     { word: "Alex Tu|", ms: 400 },
-    { word: "Alex Tu", ms: 200 },
-    { word: "Alex Tu", ms: 250 }
+    { word: "Alex Tu", ms: 150 },
+    { word: "Alex Tu", ms: 150 }
 ];
 
 const names = [
   [
-    { word: "Alex T|", ms: 125 },
+    { word: "Alex T|", ms: 150 },
     { word: "Alex To|", ms: 150 },
     { word: "Alex Too|", ms: 400 },
     { word: "Alex Too", ms: 300 },
